@@ -34,16 +34,16 @@ class Weather extends React.Component {
             .then(response => {
                 axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/${response.data[0].woeid}`)
                     .then(response => {
-                        this.setState({weatherError: ""})
+                        this.setState({ weatherError: "" })
                         this.setState({ weather: response.data })
                     })
                     .catch(error => {
-                        this.setState({weatherError: "Could not find city!"})
+                        this.setState({ weatherError: "Could not find city!" })
                         console.log(error, "Cannot find weather data for this location")
                     })
             })
             .catch(error => {
-                this.setState({weatherError: "Please try again with a valid city!"})
+                this.setState({ weatherError: "Please try again with a valid city!" })
                 console.log(error, "Cannot fetch API data")
             })
     }
@@ -56,6 +56,7 @@ class Weather extends React.Component {
                 <h1>Is it warm yet?</h1>
                 <Input type="text" onKeyPress={this.onEnter} onChange={this.updateLocation} value={this.state.location} placeholder="City?" />
                 <Button onClick={this.getWeather}>Get Some Weather!</Button>
+                {!this.state.weatherError && <h2>{this.state.weather.title}</h2>}
                 {weatherInfoAvailable && this.state.weatherError === "" &&
                     weatherInfo.map(day => (
                         <WeatherCard key={day.applicable_date} day={day} />
