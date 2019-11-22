@@ -1,0 +1,19 @@
+.weather-paper {
+    height: 100%;
+    width: 80%;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.weather-card {
+    margin: 1rem auto;
+    width: 50%;
+    display: flex;
+    padding: 1rem;
+}
+
+.weather-icon {
+    margin: 1rem 2rem 0 2rem;
+    width: 3rem;
+    height: 3rem;
+}
