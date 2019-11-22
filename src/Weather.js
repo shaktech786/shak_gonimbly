@@ -3,8 +3,8 @@ import Paper from '@material-ui/core/Paper';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
-import { Card } from '@material-ui/core';
 import "./Weather.css";
+import WeatherCard from './WeatherCard';
 
 class Weather extends React.Component {
     constructor(props) {
@@ -53,11 +53,7 @@ class Weather extends React.Component {
                 <Button onClick={this.getWeather}>Get Some Weather!</Button>
                 {this.state.weather !== "" &&
                     weatherInfo.map(day => (
-                        <Card key={day.applicable_date} className="weather-card">
-                            <h2>{day.applicable_date}</h2>
-                            <img className="weather-icon" alt="Weather Icon" src={`https://www.metaweather.com/static/img/weather/png/${day.weather_state_abbr}.png`} />
-                            <h3>{day.weather_state_name}</h3>
-                        </Card>
+                        <WeatherCard key={day.applicable_date} day={day}/>
                     ))
                 }
             </Paper>
