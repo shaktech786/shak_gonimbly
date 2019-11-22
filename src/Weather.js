@@ -14,12 +14,19 @@ class Weather extends React.Component {
             location: "",
             weather: ""
         }
+        this.getWeather = this.getWeather.bind(this);
     }
 
     updateLocation = (event) => {
         this.setState(
             { location: event.target.value }
         );
+    }
+
+    onEnter = (event) => {
+        if (event.key === "Enter") {
+            this.getWeather();
+        }
     }
 
     getWeather = () => {
@@ -42,7 +49,7 @@ class Weather extends React.Component {
         return (
             <Paper className="weather">
                 <h1>Is it warm yet?</h1>
-                <Input type="text" onChange={this.updateLocation} value={this.state.location} placeholder="City?" />
+                <Input type="text" onKeyPress={this.onEnter} onChange={this.updateLocation} value={this.state.location} placeholder="City?" />
                 <Button onClick={this.getWeather}>Get Some Weather!</Button>
                 <Card>{this.state.weather.weather_state_name}</Card>
             </Paper>
