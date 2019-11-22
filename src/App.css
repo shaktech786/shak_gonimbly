@@ -1,7 +1,13 @@
+body {
+  background-color: #D3F3E9;
+}
+
 .App {
   text-align: center;
 }
 
-body {
-  background-color: #D3F3E9;
+.weather {
+  height: 90vh;
+  width: 80%;
+  margin: 2rem auto;
 }
