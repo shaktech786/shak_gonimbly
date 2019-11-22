@@ -45,7 +45,7 @@ class Weather extends React.Component {
     }
 
     render() {
-        var weatherInfo = this.state.weather && this.state.weather.consolidated_weather;
+        const weatherInfo = this.state.weather && this.state.weather.consolidated_weather;
         return (
             <Paper className="weather-paper">
                 <h1>Is it warm yet?</h1>
