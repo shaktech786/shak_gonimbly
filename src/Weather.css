@@ -6,6 +6,8 @@
 }
 
 .weather-card {
+    background-color: #5FD4B1 !important;
+    color: #fff !important;
     margin: 1rem auto;
     width: 50%;
     display: flex;
