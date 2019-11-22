@@ -46,14 +46,15 @@ class Weather extends React.Component {
 
     render() {
         const weatherInfo = this.state.weather && this.state.weather.consolidated_weather;
+        const weatherInfoAvailable = this.state.weather !== "";
         return (
             <Paper className="weather-paper">
                 <h1>Is it warm yet?</h1>
                 <Input type="text" onKeyPress={this.onEnter} onChange={this.updateLocation} value={this.state.location} placeholder="City?" />
                 <Button onClick={this.getWeather}>Get Some Weather!</Button>
-                {this.state.weather !== "" &&
+                {weatherInfoAvailable &&
                     weatherInfo.map(day => (
-                        <WeatherCard key={day.applicable_date} day={day}/>
+                        <WeatherCard key={day.applicable_date} day={day} />
                     ))
                 }
             </Paper>
